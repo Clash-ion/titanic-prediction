@@ -1,5 +1,5 @@
 # Titanic Survival Prediction
-A web application that predicts survival of a Titanic passenger.
+A web application that predicts the survival of a Titanic passenger.
 
 The back-end is made using Flask in Python, and located inside `model_service`.  
 The front-end is made using React in NodeJS, and located inside `react_frontend`.
