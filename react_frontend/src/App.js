@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import predictSurvival from './services/prediction';
+import Loader from 'react-loader-spinner';
 import './App.css';
 
 const Prediction = (props) => {
   if (props.result === null)
     return <h4>Enter the data and submit to retrieve the prediction.</h4>;
   if (props.result.status === 'WAITING')
-    return <h4>Loading...</h4>;
+    return (
+      <div className='text-center'>
+        <h4>Loading...</h4>
+        <Loader type='TailSpin' color='black' />
+      </div>
+    );
   if (props.result.status === 'FAIL')
     return <h4 className='text-danger'>Error: { props.result.error }</h4>;
   if (props.result.status === 'SUCCESS') {
@@ -158,7 +164,7 @@ class App extends Component {
               <button className='btn btn-block btn-primary'
                 type='submit'
                 disabled={
-                     this.state.pid === '' && this.state.pidTouched
+                    (this.state.pid === '' && this.state.pidTouched)
                   || this.state.age === ''
                   || this.state.sibsp === ''
                   || this.state.parch === ''
