@@ -8,4 +8,9 @@ const predictSurvival = async (query) => {
 	});
 };
 
-export default predictSurvival;
+const generateModel = (query) => axios.get(`${apiUrl}/generate`);
+
+export {
+	predictSurvival,
+	generateModel
+};
