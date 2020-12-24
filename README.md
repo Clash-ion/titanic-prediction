@@ -16,6 +16,11 @@ python -m venv env
 . ./env/bin/activate # This step may be different in other operating systems
 ```
 
+Install `wheel`, which is required for the installation of many dependencies and needs to be installed prior to them.
+``` bash
+pip install wheel
+```
+
 Install the PyPI requirements as needed.
 ``` bash
 pip install requirements.txt
