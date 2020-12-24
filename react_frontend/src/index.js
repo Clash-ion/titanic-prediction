@@ -12,7 +12,6 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-
     <div className="App">
       <Router>
         <header className='navbar navbar-expand-md navbar-dark bg-success'>
@@ -36,6 +35,13 @@ ReactDOM.render(
         <Route exact path='/' strict={true} component={App} />
         <Route exact path='/generate' strict={true} component={ModelGen} />
       </Router>
+      <footer className='container-fluid bg-dark pb-3 pt-3'>
+        <div className='row'>
+          <div className='col-12 text-center text-white'>
+            <h5>© Param Siddharth 2020</h5>
+          </div>
+        </div>
+      </footer>
     </div>
   </React.StrictMode>,
   document.getElementById('root')
