@@ -3,3 +3,4 @@
 env/
 venv/
 model_service/env/
+model_service/venv/
