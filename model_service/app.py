@@ -1,5 +1,6 @@
 # Import modules
 from flask import Flask, request, Response
+from flask_cors import CORS
 from sys import exit, stderr
 from os import environ, path, getcwd
 import json
@@ -8,6 +9,7 @@ import numpy as np
 
 # Initialize app
 app = Flask(__name__)
+CORS(app)
 try:
 	port = int(environ.get('FLASK_RUN_PORT', 3000))
 except:
@@ -23,14 +25,14 @@ except Exception as e:
 
 # Valid arguments for the API, with types
 valid_params = [
-	('PassengerId', np.int64),
-	('Pclass', np.int64),
-	('Sex', np.float64),
-	('Age', np.float64),
-	('SibSp', np.int64),
-	('Parch', np.int64),
-	('Fare', np.float64),
-	('Embarked', np.float64)
+	('pid', np.int64),
+	('pclass', np.int64),
+	('sex', np.float64),
+	('age', np.float64),
+	('sibsp', np.int64),
+	('parch', np.int64),
+	('fare', np.float64),
+	('embarked', np.float64)
 ]
 
 # Parse the sex argument
@@ -68,8 +70,8 @@ def parse_embarked(em):
 
 # All parsing functions
 parse_arg = {
-	'Sex': parse_sex,
-	'Embarked': parse_embarked
+	'sex': parse_sex,
+	'embarked': parse_embarked
 }
 
 # API route
